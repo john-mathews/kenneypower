@@ -14,7 +14,6 @@ func spawn_orb():
 		var rand_y = (rand_x / 2) * (randf() + .3)
 
 		new_orb.velocity = Vector2(maybe_negative(rand_x),maybe_negative(rand_y)).normalized() * starting_speed
-		var x_vel = new_orb.velocity.x
 		parent_scene.orb_container.add_child(new_orb);
 		spawn_counter = 0.0
 	
@@ -25,5 +24,5 @@ func _process(delta: float) -> void:
 		spawn_orb()
 
 func maybe_negative(num: float):
-	var sign = 1 if randi() % 2 == 0 else -1
-	return num * sign
+	var aSign = 1 if randi() % 2 == 0 else -1
+	return num * aSign

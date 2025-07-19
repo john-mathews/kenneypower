@@ -10,4 +10,9 @@ var integrity: int
 var energy: int
 
 func _ready() -> void:
+	reset_data()
+	
+func reset_data() -> void:
 	integrity = MAX_INTEGRITY
+	score = 0
+	energy = 0

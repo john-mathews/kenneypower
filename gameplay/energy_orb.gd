@@ -18,11 +18,12 @@ func _physics_process(delta: float) -> void:
 		var normal = collision.get_normal()
 		var collider = collision.get_collider()
 		velocity = velocity.bounce(normal)
+		velocity = min(max_speed,(velocity.length() + speed_increase)) * velocity.normalized() 
+		
 		if collider is CharacterBody2D:
 			if UiDataManager.energy < UiDataManager.MAX_ENERGY:
 				UiDataManager.energy += 1
 				UiDataManager.update_energy_ui.emit(UiDataManager.energy)
-			velocity = min(max_speed,(velocity.length() + speed_increase)) * velocity.normalized() 
 		elif collider is StaticBody2D && collider.is_reactor: 
 			collider.damage_reactor()
 	

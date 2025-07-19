@@ -1,13 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://lfv8n8en46p5"]
+[gd_scene load_steps=12 format=4 uid="uid://c24g4jvrr1lt7"]
 
-[ext_resource type="Script" uid="uid://76bwy085po4i" path="res://ui/integrity_bar.gd" id="1_nb4k0"]
-[ext_resource type="Texture2D" uid="uid://srmuxcu26o2d" path="res://assets/bar_round_gloss_large_m_red.png" id="3_tf0e0"]
-[ext_resource type="Texture2D" uid="uid://e8w5h6hry5lk" path="res://assets/barHorizontal_yellow_mid.png" id="3_wl5ax"]
-[ext_resource type="Script" uid="uid://db3mp6awvbqj7" path="res://ui/energy_bar.gd" id="4_vkava"]
-[ext_resource type="LabelSettings" uid="uid://bp5haxjq7n28h" path="res://resources/label.tres" id="5_gycre"]
-[ext_resource type="Texture2D" uid="uid://cedo1ky7ww3m0" path="res://assets/bar_round_gloss_large_l.png" id="6_ay4pc"]
-[ext_resource type="Texture2D" uid="uid://d4c5ottq8wxxa" path="res://assets/bar_round_gloss_large_m.png" id="6_gycre"]
-[ext_resource type="Texture2D" uid="uid://cjal30xrh0650" path="res://assets/bar_round_gloss_large_r.png" id="10_bi8hs"]
+[ext_resource type="Script" uid="uid://cq0k3pwulehjt" path="res://gameplay/level.gd" id="1_j7vup"]
+[ext_resource type="TileSet" uid="uid://busgprfv7bjnu" path="res://resources/tileset.tres" id="1_k7ktn"]
+[ext_resource type="PackedScene" uid="uid://bs4v4er6t1dag" path="res://gameplay/player.tscn" id="2_4obhw"]
+[ext_resource type="PackedScene" uid="uid://1hk7bataoj6w" path="res://ui/pause.tscn" id="2_sgfmm"]
+[ext_resource type="PackedScene" uid="uid://uoxl7r2jtowl" path="res://gameplay/wall.tscn" id="5_x5j6w"]
+[ext_resource type="PackedScene" uid="uid://lfv8n8en46p5" path="res://ui/ui.tscn" id="6_sgfmm"]
 
 [sub_resource type="Image" id="Image_r8tso"]
 data = {
@@ -435,176 +433,78 @@ cache/0/32/0/glyphs/44/size = Vector2(6, 22)
 cache/0/32/0/glyphs/44/uv_rect = Rect2(249, 1, 6, 22)
 cache/0/32/0/glyphs/44/texture_idx = 0
 
-[sub_resource type="LabelSettings" id="LabelSettings_gycre"]
+[sub_resource type="LabelSettings" id="LabelSettings_x5j6w"]
 font = SubResource("FontFile_8cxrt")
-font_color = Color(0, 0, 0, 1)
+font_size = 32
 
-[node name="UI" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="Level" type="Node2D"]
+script = ExtResource("1_j7vup")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Pause" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_sgfmm")]
+parent = NodePath("..")
 
-[node name="Control2" type="Control" parent="HBoxContainer"]
-layout_mode = 2
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAACAAoAAwACAAAAADADAAoAAwACAAAAADAEAAoAAwACAAAAADAFAAoAAwACAAAAADAGAAoAAwACAAAAADAHAAoAAwACAAAAADAIAAoAAwACAAAAADAJAAoAAwACAAAAADAKAAoAAwACAAAAADALAAoAAwACAAAAADAMAAoAAwACAAAAADANAAoAAwACAAAAADAOAAoAAwACAAAAADAPAAoAAwACAAAAADABAAAAAwACAAAAADACAAAAAwACAAAAADADAAAAAwACAAAAADAEAAAAAwACAAAAADAFAAAAAwACAAAAADAGAAAAAwACAAAAADAHAAAAAwACAAAAADAIAAAAAwACAAAAADAJAAAAAwACAAAAADAKAAAAAwACAAAAADALAAAAAwACAAAAADAMAAAAAwACAAAAADANAAAAAwACAAAAADAOAAAAAwACAAAAADAPAAAAAwACAAAAADAQAAAAAwADAAAAAAABAAoAAwACAAAAADAAAAoAAwACAAAAADD//woAAwACAAAAADD//wkAAwACAAAAAAAAAAkAAwACAAAAAAAQAAoAAwACAAAAADARAAoAAwACAAAAADASAAoAAwACAAAAADARAAkAAwACAAAAAAASAAkAAwACAAAAAAASAAgAAwACAAAAAAARAAAAAwACAAAAAAASAAAAAwACAAAAAAASAAEAAwACAAAAAAAAAAAAAwACAAAAAAD//wAAAwACAAAAAAD//wEAAwACAAAAAAD//wgAAwACAAAAAAAQAAkAAwACAAAAAAAPAAkAAwACAAAAAAAOAAkAAwACAAAAAAANAAkAAwACAAAAAAAMAAkAAwACAAAAAAALAAkAAwACAAAAAAAKAAkAAwACAAAAAAAJAAkAAwACAAAAAAAIAAkAAwACAAAAAAAHAAkAAwACAAAAAAAGAAkAAwACAAAAAAAFAAkAAwACAAAAAAAEAAkAAwACAAAAAAADAAkAAwACAAAAAAACAAkAAwACAAAAAAABAAkAAwACAAAAAAASAP//AwACAAAAADARAP//AwACAAAAADAQAP//AwACAAAAADAPAP//AwACAAAAADAOAP//AwACAAAAADANAP//AwACAAAAADAMAP//AwACAAAAADALAP//AwACAAAAADAKAP//AwACAAAAADAJAP//AwACAAAAADAIAP//AwACAAAAADAHAP//AwACAAAAADAGAP//AwACAAAAADAFAP//AwACAAAAADAEAP//AwACAAAAADADAP//AwACAAAAADACAP//AwACAAAAADABAP//AwACAAAAADAAAP//AwACAAAAADD/////AwACAAAAADA=")
+tile_set = ExtResource("1_k7ktn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="CornerWalls" type="Node2D" parent="."]
 
-[node name="Control2" type="Control" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Wall" parent="CornerWalls" instance=ExtResource("5_x5j6w")]
+position = Vector2(64, 64)
+rotation = 2.0944
 
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Wall2" parent="CornerWalls" instance=ExtResource("5_x5j6w")]
+position = Vector2(64, 584)
+rotation = 1.0472
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 26.0
-grow_horizontal = 2
+[node name="Wall3" parent="CornerWalls" instance=ExtResource("5_x5j6w")]
+position = Vector2(1088, 64)
+rotation = -2.0944
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
+[node name="Wall4" parent="CornerWalls" instance=ExtResource("5_x5j6w")]
+position = Vector2(1088, 584)
+rotation = -1.0472
 
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("6_ay4pc")
+[node name="ReactorWalls" type="Node2D" parent="."]
 
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="Wall" parent="ReactorWalls" instance=ExtResource("5_x5j6w")]
+position = Vector2(-8, 324)
+rotation = 1.5708
+scale = Vector2(1, 1)
+is_reactor = true
 
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-nine_patch_stretch = true
-texture_under = ExtResource("6_gycre")
+[node name="Wall2" parent="ReactorWalls" instance=ExtResource("5_x5j6w")]
+position = Vector2(1160, 324)
+rotation = -1.5708
+scale = Vector2(1, 1)
+is_reactor = true
 
-[node name="IntegrityBar" type="TextureProgressBar" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer/Control"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -0.5
-offset_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-value = 100.0
-rounded = true
-nine_patch_stretch = true
-texture_progress = ExtResource("3_tf0e0")
-tint_progress = Color(1, 0.968627, 1, 1)
-script = ExtResource("1_nb4k0")
+[node name="Player" parent="." instance=ExtResource("2_4obhw")]
+position = Vector2(64, 324)
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer/Control"]
-layout_mode = 1
+[node name="Player2" parent="." instance=ExtResource("2_4obhw")]
+position = Vector2(1086, 324)
+side = "right"
+
+[node name="Orbs" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("6_sgfmm")]
+z_index = 5
+
+[node name="StartLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -80.0
 offset_top = -11.5
-offset_right = 20.0
+offset_right = 80.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Reactor Integrity"
-label_settings = SubResource("LabelSettings_gycre")
-horizontal_alignment = 1
-
-[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("10_bi8hs")
-
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
-
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("6_ay4pc")
-
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer2/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-nine_patch_stretch = true
-texture_under = ExtResource("6_gycre")
-
-[node name="EnergyBar" type="TextureProgressBar" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer2/Control"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -0.5
-offset_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-value = 50.0
-rounded = true
-nine_patch_stretch = true
-texture_progress = ExtResource("3_wl5ax")
-script = ExtResource("4_vkava")
-
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer2/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -101.0
-offset_top = -11.5
-offset_right = 101.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Power"
-label_settings = ExtResource("5_gycre")
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/Control/HBoxContainer/HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("10_bi8hs")
-
-[node name="Control" type="Control" parent="HBoxContainer"]
-layout_mode = 2
+size_flags_horizontal = 4
+text = "Press any button to begin"
+label_settings = SubResource("LabelSettings_x5j6w")
