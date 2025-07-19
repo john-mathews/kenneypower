@@ -1,0 +1,125 @@
+[gd_scene load_steps=8 format=3 uid="uid://lfv8n8en46p5"]
+
+[ext_resource type="Texture2D" uid="uid://co1fgej7s1cqj" path="res://assets/barHorizontal_red_mid.png" id="1_ks8t7"]
+[ext_resource type="Script" uid="uid://76bwy085po4i" path="res://ui/integrity_bar.gd" id="1_nb4k0"]
+[ext_resource type="Texture2D" uid="uid://yjwq2i0hvxlc" path="res://assets/bar_round_gloss_large_l.png" id="3_bo1jx"]
+[ext_resource type="Texture2D" uid="uid://srmuxcu26o2d" path="res://assets/bar_round_gloss_large_m.png" id="3_tf0e0"]
+[ext_resource type="Texture2D" uid="uid://e8w5h6hry5lk" path="res://assets/barHorizontal_yellow_mid.png" id="3_wl5ax"]
+[ext_resource type="Script" uid="uid://db3mp6awvbqj7" path="res://ui/energy_bar.gd" id="4_vkava"]
+[ext_resource type="Texture2D" uid="uid://c0os8wyft6hm" path="res://assets/bar_round_gloss_large_r.png" id="6_obcwv"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="TextureRect3" type="TextureRect" parent="Control/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_bo1jx")
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="Control/HBoxContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+nine_patch_stretch = true
+texture_under = ExtResource("3_tf0e0")
+
+[node name="IntegrityBar" type="TextureProgressBar" parent="Control/HBoxContainer/HBoxContainer/Control"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+value = 100.0
+rounded = true
+nine_patch_stretch = true
+texture_progress = ExtResource("1_ks8t7")
+tint_progress = Color(1, 0.968627, 1, 1)
+script = ExtResource("1_nb4k0")
+
+[node name="TextureRect4" type="TextureRect" parent="Control/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_obcwv")
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Control/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("3_bo1jx")
+
+[node name="Control" type="Control" parent="Control/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/HBoxContainer/HBoxContainer2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+nine_patch_stretch = true
+texture_under = ExtResource("3_tf0e0")
+
+[node name="EnergyBar" type="TextureProgressBar" parent="Control/HBoxContainer/HBoxContainer2/Control"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+value = 50.0
+rounded = true
+nine_patch_stretch = true
+texture_progress = ExtResource("3_wl5ax")
+script = ExtResource("4_vkava")
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("6_obcwv")
