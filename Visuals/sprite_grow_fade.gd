@@ -7,7 +7,7 @@ func _ready() -> void:
 	default_color = modulate
 	animate_particle(self)
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	rotation += deg_to_rad(1)
 	if rotation > 2 * PI:
 		rotation = 0

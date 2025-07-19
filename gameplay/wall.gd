@@ -14,5 +14,5 @@ func damage_reactor():
 	UiDataManager.update_integrity_ui.emit(UiDataManager.integrity)
 
 func heal_reactor():
-	UiDataManager.integrity += 1
+	UiDataManager.integrity += 5
 	UiDataManager.update_integrity_ui.emit(UiDataManager.integrity)

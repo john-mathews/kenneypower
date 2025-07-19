@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd3p3qphun8m1"]
+[gd_scene load_steps=4 format=3 uid="uid://cd3p3qphun8m1"]
 
 [ext_resource type="Texture2D" uid="uid://dh2f1va7121xu" path="res://assets/bar_round_large_square.png" id="1_ummtc"]
 [ext_resource type="Script" uid="uid://g8kfb4sh5ln2" path="res://gameplay/Powerups/power_up_orb.gd" id="1_vndlj"]
-[ext_resource type="Texture2D" uid="uid://del7xqamxln8u" path="res://gameplay/Powerups/icons/crosshair_color_c_green_edit.png" id="3_4hiwr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_77jvr"]
 radius = 24.0
@@ -12,11 +11,10 @@ collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_vndlj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_77jvr")
-
 [node name="BarRoundLargeSquare" type="Sprite2D" parent="."]
 texture = ExtResource("1_ummtc")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_77jvr")
+
 [node name="icon" type="Sprite2D" parent="."]
-texture = ExtResource("3_4hiwr")

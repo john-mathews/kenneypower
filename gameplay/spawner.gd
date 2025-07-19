@@ -5,14 +5,20 @@ var power_up_uid := 'uid://cd3p3qphun8m1'
 @export var parent_scene: Node2D
 var starting_speed:= 250.0
 var spawn_seconds := 5.0
-var spawn_counter := 4.0
+var min_spawn_seconds := 3.0
+var spawn_counter := spawn_seconds - 1.0
+var total_counter := 0.0
 
-var power_up_spawn_seconds := 10.0
+var power_up_spawn_seconds := 3.0
 var power_up_counter:= 0.0
+
+
 
 func spawn_orb():
 	if parent_scene != null:
+		var cold_fusion = PowerUpManager.power_up_types.COLD_FUSION in PowerUpManager.current_power_ups
 		var new_orb = load(orb_uid).instantiate()
+		new_orb.cold_fusion = cold_fusion
 		new_orb.position = position
 		var rand_x = randf()
 		var rand_y = (rand_x / 2) * (randf() + .3)
@@ -23,6 +29,9 @@ func spawn_orb():
 		
 func spawn_power_up():
 	if parent_scene != null:
+		if spawn_seconds > min_spawn_seconds:
+			var minutes = floori(total_counter)%60
+			spawn_seconds = max(min_spawn_seconds, spawn_seconds - minutes)
 		var new_orb = load(power_up_uid).instantiate()
 		new_orb.position = position
 		var rand_x = randf()
@@ -33,6 +42,7 @@ func spawn_power_up():
 		power_up_counter = 0.0
 	
 func _process(delta: float) -> void:
+	total_counter += delta
 	if spawn_counter < spawn_seconds:
 		spawn_counter += delta
 	else:

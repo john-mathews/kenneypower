@@ -21,6 +21,7 @@ shader_parameter/replacement_color = Color(1, 1, 1, 0)
 [node name="ReactorVisual" type="Node2D"]
 
 [node name="Pulse" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.5)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("2_5qr8w")
 script = ExtResource("3_mnks3")

@@ -1,5 +1,8 @@
 extends TextureProgressBar
 
+@onready var label := $EnergyLabel
+var max_energy: int
+
 func _ready() -> void:
 	max_value = UiDataManager.MAX_ENERGY
 	value = 0
@@ -7,3 +10,4 @@ func _ready() -> void:
 
 func update_value(energy: int):
 	value = energy
+	label.text = 'Power: ' + str(int(value)) + '/' + str(int(max_value))

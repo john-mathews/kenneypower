@@ -1,7 +1,11 @@
 extends CharacterBody2D
 
 var speed := 500.0
+var init_spawn : Vector2
 @export_enum("left", "right") var side := 'left'
+
+func _ready() -> void:
+	init_spawn = position
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed(side + '_up'):
@@ -27,7 +31,6 @@ func _physics_process(delta: float) -> void:
 			else:
 				collider.velocity.x = -abs(collider.velocity.x)
 		elif collider is PowerUpOrb:
-			activate_power_up(collider)
+			PowerUpManager.activate_power_up(collider)
 
-func activate_power_up(power_up: PowerUpOrb) -> void:
-	pass
+		

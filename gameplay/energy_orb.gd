@@ -5,6 +5,20 @@ var max_speed := 1000.0
 var point_value := 1
 var point_timer := 1.0
 var point_counter := 0.0
+var cold_fusion := false
+@onready var sprite := $Sprite2D
+const blue_dot_uid := 'uid://ctpq8xv0sdmud'
+
+func _ready() -> void:
+	if cold_fusion:
+		var tex = preload(blue_dot_uid)
+		set_texture(tex)
+		scale *= 1.5
+		
+	
+func set_texture(tex: Texture2D):
+	if sprite != null:
+		sprite.texture = tex
 
 func _physics_process(delta: float) -> void:
 	if point_counter >= point_timer:
@@ -23,6 +37,12 @@ func _physics_process(delta: float) -> void:
 			if UiDataManager.energy < UiDataManager.MAX_ENERGY:
 				UiDataManager.energy += 1
 				UiDataManager.update_energy_ui.emit(UiDataManager.energy)
-		elif collider is StaticBody2D && collider.is_reactor: 
-			collider.damage_reactor()
+		elif collider is StaticBody2D && collider.is_reactor:
+			if PowerUpManager.power_up_types.FORCE_FIELD in PowerUpManager.current_power_ups:
+				pass #deflect subtracts energy instead of integrity
+			elif cold_fusion:
+				collider.heal_reactor()
+				queue_free()
+			else:
+				collider.damage_reactor()
 	

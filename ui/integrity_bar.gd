@@ -1,4 +1,5 @@
 extends TextureProgressBar
+@onready var label := $Label
 
 func _ready() -> void:
 	max_value = UiDataManager.MAX_INTEGRITY
@@ -6,3 +7,4 @@ func _ready() -> void:
 
 func update_value(integrity: int):
 	value = integrity
+	label.text = 'Reactor Integrity: ' + str(int(value)) + '/' + str(int(max_value))

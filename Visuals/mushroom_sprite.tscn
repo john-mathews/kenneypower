@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://13kcww77ujv"]
+
+[ext_resource type="Texture2D" uid="uid://d4c5ottq8wxxa" path="res://assets/bar_round_gloss_large_m.png" id="1_q4xfc"]
+[ext_resource type="Texture2D" uid="uid://b3fbgeyyayscs" path="res://assets/bar_round_large_r.png" id="2_wet3w"]
+
+[node name="MushroomSprite" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="BarRoundGlossLargeM" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_q4xfc")
+
+[node name="BarRoundLargeR" type="Sprite2D" parent="."]
+position = Vector2(0, -26)
+rotation = -1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_wet3w")
