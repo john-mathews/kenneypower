@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	if collision != null:
 		var normal = collision.get_normal()
 		var collider = collision.get_collider()
-		if collider is CharacterBody2D:
+		if collider is EnergyOrb:
 			if UiDataManager.energy < UiDataManager.MAX_ENERGY:
 				UiDataManager.energy += 1
 				UiDataManager.update_energy_ui.emit(UiDataManager.energy)
@@ -26,4 +26,8 @@ func _physics_process(delta: float) -> void:
 				collider.velocity.x = abs(collider.velocity.x)
 			else:
 				collider.velocity.x = -abs(collider.velocity.x)
-				
+		elif collider is PowerUpOrb:
+			activate_power_up(collider)
+
+func activate_power_up(power_up: PowerUpOrb) -> void:
+	pass

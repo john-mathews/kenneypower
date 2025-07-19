@@ -12,3 +12,7 @@ func _ready() -> void:
 func damage_reactor():
 	UiDataManager.integrity -= 1
 	UiDataManager.update_integrity_ui.emit(UiDataManager.integrity)
+
+func heal_reactor():
+	UiDataManager.integrity += 1
+	UiDataManager.update_integrity_ui.emit(UiDataManager.integrity)

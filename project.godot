@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 [autoload]
 
 UiDataManager="*res://ui/ui_data_manager.gd"
+PowerUpManager="*res://gameplay/Powerups/power_up_manager.gd"
 
 [input]
 

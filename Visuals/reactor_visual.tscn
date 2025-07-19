@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbto885cqlqxa"]
+
+[ext_resource type="Texture2D" uid="uid://d2iopliaiek71" path="res://assets/crosshair_color_a_red.png" id="1_4o47q"]
+[ext_resource type="Texture2D" uid="uid://cqqxocwuu2foj" path="res://assets/bar_round_small.png" id="1_fq4up"]
+[ext_resource type="Shader" uid="uid://bim2hyrfg3khi" path="res://Visuals/remove_white.gdshader" id="1_llt8u"]
+[ext_resource type="Script" uid="uid://ccjjxw0qlgt0q" path="res://Visuals/sprite_rotation.gd" id="2_2f20j"]
+[ext_resource type="Texture2D" uid="uid://hlp5khhobr6c" path="res://assets/crosshair_color_a.png" id="2_2ty64"]
+[ext_resource type="Texture2D" uid="uid://cmjgno7e4x5wl" path="res://assets/dotYellow.png" id="2_5qr8w"]
+[ext_resource type="Script" uid="uid://cgpchytnliydj" path="res://Visuals/sprite_grow_fade.gd" id="3_mnks3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qr8w"]
+shader = ExtResource("1_llt8u")
+shader_parameter/threshold = 0.95
+shader_parameter/replacement_color = Color(1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_llt8u"]
+shader = ExtResource("1_llt8u")
+shader_parameter/threshold = 0.95
+shader_parameter/replacement_color = Color(1, 1, 1, 0)
+
+[node name="ReactorVisual" type="Node2D"]
+
+[node name="Pulse" type="Sprite2D" parent="."]
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_5qr8w")
+script = ExtResource("3_mnks3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 2)
+texture = ExtResource("1_fq4up")
+
+[node name="RedReactorVisual" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5qr8w")
+scale = Vector2(4, 4)
+texture = ExtResource("1_4o47q")
+script = ExtResource("2_2f20j")
+rotating_clockwise = true
+
+[node name="Yellow" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5qr8w")
+scale = Vector2(3, 3)
+texture = ExtResource("2_2ty64")
+script = ExtResource("2_2f20j")
+
+[node name="RedReactorVisual2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5qr8w")
+scale = Vector2(2, 2)
+texture = ExtResource("1_4o47q")
+script = ExtResource("2_2f20j")
+rotating_clockwise = true
+
+[node name="Yellow2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_llt8u")
+position = Vector2(0, -1)
+texture = ExtResource("2_2ty64")
+script = ExtResource("2_2f20j")

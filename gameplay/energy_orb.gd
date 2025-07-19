@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name EnergyOrb extends CharacterBody2D
 
 var speed_increase := 20.0
 var max_speed := 1000.0
@@ -6,10 +6,10 @@ var point_value := 1
 var point_timer := 1.0
 var point_counter := 0.0
 
-
 func _physics_process(delta: float) -> void:
 	if point_counter >= point_timer:
 		UiDataManager.score += point_value
+		UiDataManager.update_score_ui.emit(UiDataManager.score)
 		point_counter = 0
 	else:
 		point_counter += delta
@@ -19,7 +19,6 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		velocity = velocity.bounce(normal)
 		velocity = min(max_speed,(velocity.length() + speed_increase)) * velocity.normalized() 
-		
 		if collider is CharacterBody2D:
 			if UiDataManager.energy < UiDataManager.MAX_ENERGY:
 				UiDataManager.energy += 1

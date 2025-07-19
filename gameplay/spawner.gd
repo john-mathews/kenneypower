@@ -1,10 +1,14 @@
 extends Node2D
 
 var orb_uid := 'uid://ccopb4164r4x4'
+var power_up_uid := 'uid://cd3p3qphun8m1'
 @export var parent_scene: Node2D
 var starting_speed:= 250.0
 var spawn_seconds := 5.0
 var spawn_counter := 4.0
+
+var power_up_spawn_seconds := 10.0
+var power_up_counter:= 0.0
 
 func spawn_orb():
 	if parent_scene != null:
@@ -16,12 +20,28 @@ func spawn_orb():
 		new_orb.velocity = Vector2(maybe_negative(rand_x),maybe_negative(rand_y)).normalized() * starting_speed
 		parent_scene.orb_container.add_child(new_orb);
 		spawn_counter = 0.0
+		
+func spawn_power_up():
+	if parent_scene != null:
+		var new_orb = load(power_up_uid).instantiate()
+		new_orb.position = position
+		var rand_x = randf()
+		var rand_y = (rand_x / 2) * randf() 
+
+		new_orb.velocity = Vector2(maybe_negative(rand_x),maybe_negative(rand_y)).normalized() * starting_speed
+		parent_scene.orb_container.add_child(new_orb);
+		power_up_counter = 0.0
 	
 func _process(delta: float) -> void:
 	if spawn_counter < spawn_seconds:
 		spawn_counter += delta
 	else:
 		spawn_orb()
+		
+	if power_up_counter < power_up_spawn_seconds:
+		power_up_counter += delta
+	else:
+		spawn_power_up()
 
 func maybe_negative(num: float):
 	var aSign = 1 if randi() % 2 == 0 else -1
