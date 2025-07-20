@@ -1,13 +1,20 @@
 extends CharacterBody2D
 
-var speed := 500.0
+var speed := 400.0
 var init_spawn : Vector2
 @export_enum("left", "right") var side := 'left'
+@onready var vacuum_spawn := $VacuumSpawn
+const vacuum_spawn_offset := Vector2(160, 0)
 
 func _ready() -> void:
 	init_spawn = position
-
+	if side == 'left':
+		vacuum_spawn.position += vacuum_spawn_offset
+	else:
+		vacuum_spawn.position -= vacuum_spawn_offset
+		
 func _physics_process(delta: float) -> void:
+	position.x = init_spawn.x
 	if Input.is_action_pressed(side + '_up'):
 		velocity.y = -speed
 	elif Input.is_action_pressed(side + '_down'):
@@ -31,6 +38,6 @@ func _physics_process(delta: float) -> void:
 			else:
 				collider.velocity.x = -abs(collider.velocity.x)
 		elif collider is PowerUpOrb:
-			PowerUpManager.activate_power_up(collider)
+			PowerUpManager.activate_power_up(collider, self)
 
 		

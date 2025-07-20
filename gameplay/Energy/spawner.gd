@@ -5,11 +5,12 @@ var power_up_uid := 'uid://cd3p3qphun8m1'
 @export var parent_scene: Node2D
 var starting_speed:= 250.0
 var spawn_seconds := 5.0
-var min_spawn_seconds := 3.0
+var min_spawn_seconds := 2.0
 var spawn_counter := spawn_seconds - 1.0
 var total_counter := 0.0
 
-var power_up_spawn_seconds := 3.0
+var power_up_spawn_seconds := 10.0
+var min_power_up_seconds := 5.0
 var power_up_counter:= 0.0
 
 
@@ -30,8 +31,9 @@ func spawn_orb():
 func spawn_power_up():
 	if parent_scene != null:
 		if spawn_seconds > min_spawn_seconds:
-			var minutes = floori(total_counter)%60
-			spawn_seconds = max(min_spawn_seconds, spawn_seconds - minutes)
+			var quarter_minutes = floori(total_counter/15)
+			spawn_seconds = max(min_spawn_seconds, spawn_seconds - quarter_minutes)
+			power_up_spawn_seconds = max(min_power_up_seconds, power_up_spawn_seconds - quarter_minutes)
 		var new_orb = load(power_up_uid).instantiate()
 		new_orb.position = position
 		var rand_x = randf()

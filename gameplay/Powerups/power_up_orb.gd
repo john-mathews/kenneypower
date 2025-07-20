@@ -14,7 +14,6 @@ func _ready() -> void:
 		icon_node.texture = icon
 
 
-
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision != null:
@@ -23,5 +22,5 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.bounce(normal)
 		velocity = min(max_speed,velocity.length()) * velocity.normalized() 
 		if collider is CharacterBody2D:
-			PowerUpManager.activate_power_up(self)
+			PowerUpManager.activate_power_up(self, collider)
 	

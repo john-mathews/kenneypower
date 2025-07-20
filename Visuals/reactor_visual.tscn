@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbto885cqlqxa"]
+[gd_scene load_steps=11 format=3 uid="uid://bbto885cqlqxa"]
 
 [ext_resource type="Texture2D" uid="uid://d2iopliaiek71" path="res://assets/crosshair_color_a_red.png" id="1_4o47q"]
 [ext_resource type="Texture2D" uid="uid://cqqxocwuu2foj" path="res://assets/bar_round_small.png" id="1_fq4up"]
+[ext_resource type="Script" uid="uid://b43w4hdrfraks" path="res://Visuals/reactor_visual.gd" id="1_g8uqx"]
 [ext_resource type="Shader" uid="uid://bim2hyrfg3khi" path="res://Visuals/remove_white.gdshader" id="1_llt8u"]
 [ext_resource type="Script" uid="uid://ccjjxw0qlgt0q" path="res://Visuals/sprite_rotation.gd" id="2_2f20j"]
 [ext_resource type="Texture2D" uid="uid://hlp5khhobr6c" path="res://assets/crosshair_color_a.png" id="2_2ty64"]
@@ -19,6 +20,7 @@ shader_parameter/threshold = 0.95
 shader_parameter/replacement_color = Color(1, 1, 1, 0)
 
 [node name="ReactorVisual" type="Node2D"]
+script = ExtResource("1_g8uqx")
 
 [node name="Pulse" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.5)

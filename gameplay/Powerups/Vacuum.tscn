@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7gj4peoe7kwp"]
+
+[ext_resource type="Script" uid="uid://b0fx1r3ito240" path="res://gameplay/Powerups/vacuum.gd" id="1_gt2nn"]
+[ext_resource type="PackedScene" uid="uid://bbto885cqlqxa" path="res://Visuals/reactor_visual.tscn" id="1_yvwyq"]
+[ext_resource type="Shader" uid="uid://dx1cyxd8pqxh0" path="res://gameplay/Powerups/darken.gdshader" id="2_w5q1w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_knfuw"]
+radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gt2nn"]
+shader = ExtResource("2_w5q1w")
+shader_parameter/darken_factor = 0.1
+
+[node name="Vacuum" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_gt2nn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_knfuw")
+
+[node name="ReactorVisual" parent="." instance=ExtResource("1_yvwyq")]
+material = SubResource("ShaderMaterial_gt2nn")
+should_use_parent_material = true
+pulse_scale = Vector2(6, 6)

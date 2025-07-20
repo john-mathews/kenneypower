@@ -1,6 +1,10 @@
 extends Sprite2D
 
 var default_color: Color
+var pulse_scale:=Vector2(5, 5)
+
+var yellow_texture :=preload('uid://cmjgno7e4x5wl')
+var blue_texture	:=preload('uid://ctpq8xv0sdmud')
 
 func _ready() -> void:
 	scale = Vector2.ONE
@@ -13,10 +17,15 @@ func _physics_process(_delta: float) -> void:
 		rotation = 0
 
 func animate_particle(particle: Sprite2D):
+	if PowerUpManager.power_up_types.COLD_FUSION in PowerUpManager.current_power_ups:
+		texture = blue_texture
+	else:
+		texture = yellow_texture
+		
 	var tween := create_tween()
 
 	# Expand and fade
-	tween.tween_property(particle, "scale", Vector2(5, 5), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(particle, "scale", pulse_scale, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(particle, "scale", Vector2(.5, .5), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
 	

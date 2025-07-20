@@ -19,3 +19,5 @@ shape = SubResource("RectangleShape2D_t3yfu")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 texture = ExtResource("2_8pc20")
+
+[node name="VacuumSpawn" type="Node2D" parent="."]

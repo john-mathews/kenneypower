@@ -45,4 +45,22 @@ func _physics_process(delta: float) -> void:
 				queue_free()
 			else:
 				collider.damage_reactor()
+				disable_mask_1()
+				var tween := create_tween()
+
+				# Flash sprite modulate (visible → invisible → visible)
+				tween.tween_property(sprite, "modulate", Color(1, 1, 1, 0), 0.2)
+				tween.tween_property(sprite, "modulate", Color(1, 1, 1, 1), 0.3)
+
+				# After flash, re-enable collision
+				tween.tween_callback(func():
+					enable_mask_1()
+				)
+
+func disable_mask_1():
+	var mask := get_collision_mask()
+	set_collision_mask(mask & ~1)  
 	
+func enable_mask_1():
+	var mask := get_collision_mask()
+	set_collision_mask(mask | 1) 

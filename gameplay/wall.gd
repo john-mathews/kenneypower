@@ -9,10 +9,10 @@ func _ready() -> void:
 		var reactor_texture = load(reactor_sprite)
 		sprite.texture = reactor_texture
 
-func damage_reactor():
-	UiDataManager.integrity -= 1
+func damage_reactor(damage: int = 1):
+	UiDataManager.integrity -= damage
 	UiDataManager.update_integrity_ui.emit(UiDataManager.integrity)
 
-func heal_reactor():
+func heal_reactor(heal: int = 5):
 	UiDataManager.integrity += 5
 	UiDataManager.update_integrity_ui.emit(UiDataManager.integrity)

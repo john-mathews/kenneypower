@@ -4,7 +4,7 @@ signal update_integrity_ui(integrity: int)
 signal update_energy_ui(energy: int)
 signal update_score_ui(score: int)
 
-const MAX_INTEGRITY := 25
+const MAX_INTEGRITY := 50
 const MAX_ENERGY := 25
 var score := 0
 var integrity: int
