@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var speed := 400.0
+var speed_scale := 1.0
 var init_spawn : Vector2
 @export_enum("left", "right") var side := 'left'
 @onready var vacuum_spawn := $VacuumSpawn
@@ -17,9 +18,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position.x = init_spawn.x
 	if Input.is_action_pressed(side + '_up'):
-		velocity.y = -speed
+		velocity.y = -speed * speed_scale
 	elif Input.is_action_pressed(side + '_down'):
-		velocity.y = speed
+		velocity.y = speed * speed_scale
 	else:
 		velocity.y = 0
 	

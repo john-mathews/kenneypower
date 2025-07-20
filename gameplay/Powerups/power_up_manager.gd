@@ -125,9 +125,8 @@ func activate_super() -> void:
 		current_power_ups.push_back(power_up_types.SUPER)
 		for child in level.players_container.get_children():
 			var tween = create_tween()
-			tween.tween_property(child, 'scale', child.scale * 1.5,.5)
-			child.speed *= 1.5
-			child.position = child.init_spawn
+			tween.tween_property(child, 'scale', child.scale * 1.5, .5)
+			child.speed_scale = 1.5
 			
 func grow_players()-> void:
 	UiDataManager.energy = max(0, UiDataManager.energy - grow_cost)
@@ -138,17 +137,22 @@ func grow_players()-> void:
 		tween.tween_property(child, 'scale', new_scale, .3)
 		player_scale = new_scale
 		
-func reset_players() -> void:
+func reset_players(full:= false) -> void:
 	for child in level.players_container.get_children():
 		var tween = create_tween()
 		tween.tween_property(child, 'scale', player_scale, .5)
+		child.speed_scale = 1.0
 		if child.vacuum_spawn.get_child_count() > 0:
 			child.vacuum_spawn.get_child(0).queue_free()
+		if full:
+			child.position = child.init_spawn
+			
 			
 func reset_players_scale() -> void:
 	for child in level.players_container.get_children():
 		var tween = create_tween()
 		tween.tween_property(child, 'scale', player_scale, .5)
+		child.speed_scale = 1.0
 		
 func reset_players_vacuum() -> void:
 	for child in level.players_container.get_children():
@@ -158,6 +162,12 @@ func reset_players_vacuum() -> void:
 func reset() -> void:
 	current_power_ups = []
 	reset_players()
+	reset_timer_dict()
+
+func full_reset()-> void:
+	player_scale = Vector2(.5,.5)
+	current_power_ups = []
+	reset_players(true)
 	reset_timer_dict()
 
 func remove_expired_power_up(power_up: power_up_types) -> void:
