@@ -1,21 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0xs6shff5tbg"]
+[gd_scene load_steps=3 format=3 uid="uid://c0xs6shff5tbg"]
 
 [ext_resource type="Texture2D" uid="uid://clossn0c8ycos" path="res://assets/bar_square_gloss_small.png" id="1_6k6qp"]
+[ext_resource type="Texture2D" uid="uid://dh2f1va7121xu" path="res://assets/bar_round_large_square.png" id="1_05206"]
 
 [node name="LightningSprite" type="Node2D"]
 scale = Vector2(0.1, 0.1)
+
+[node name="BarRoundLargeSquare" type="Sprite2D" parent="."]
+position = Vector2(-10, 0)
+scale = Vector2(10, 10)
+texture = ExtResource("1_05206")
 
 [node name="BarSquareGlossSmall" type="Sprite2D" parent="."]
 auto_translate_mode = 2
 position = Vector2(-27.0658, -83.5191)
 rotation = -1.12368
+scale = Vector2(1, 2)
 texture = ExtResource("1_6k6qp")
 
 [node name="BarSquareGlossSmall2" type="Sprite2D" parent="."]
 auto_translate_mode = 2
 position = Vector2(-13.0658, 1.48096)
 rotation = 0.016842
-scale = Vector2(0.7, 1)
+scale = Vector2(0.7, 1.5)
 texture = ExtResource("1_6k6qp")
 
 [node name="BarSquareGlossSmall3" type="Sprite2D" parent="."]

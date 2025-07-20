@@ -15,7 +15,6 @@ enum power_up_types {
 var power_up_counter:= 0.0
 var subtract_energy_timer:= .5
 const max_powerup_time:= 15.0
-
 var available_power_ups := [power_up_types.GROW, power_up_types.SUPER, power_up_types.REPAIR, power_up_types.COLD_FUSION]
 const green_plus_icon_uid := 'uid://del7xqamxln8u'
 const mushroom_scene_uid := 'uid://13kcww77ujv'
@@ -118,7 +117,7 @@ func activate_vacuum(player: CharacterBody2D) -> void:
 	current_power_ups.push_back(power_up_types.VACUUM)
 	if player.vacuum_spawn.get_child_count() == 0:
 		var vacuum_inst = vacuum_scene.instantiate()
-		vacuum_inst.scale = Vector2.ONE * 2
+		vacuum_inst.scale = Vector2.ONE * (1.0/player_scale.x)
 		player.vacuum_spawn.add_child(vacuum_inst)
 
 func activate_super() -> void:

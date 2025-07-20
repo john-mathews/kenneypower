@@ -4,14 +4,14 @@ var orb_uid := 'uid://ccopb4164r4x4'
 var power_up_uid := 'uid://cd3p3qphun8m1'
 @export var parent_scene: Node2D
 var starting_speed:= 250.0
-var spawn_seconds := 5.0
+var spawn_seconds := 6.0
 var min_spawn_seconds := 2.0
 var spawn_counter := spawn_seconds - 1.0
 var total_counter := 0.0
 
-var power_up_spawn_seconds := 10.0
-var min_power_up_seconds := 5.0
-var power_up_counter:= 0.0
+var power_up_spawn_seconds := 8.0
+var min_power_up_seconds := 4.0
+var power_up_counter:= -2.0
 
 
 

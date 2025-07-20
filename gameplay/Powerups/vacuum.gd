@@ -1,8 +1,8 @@
 extends Area2D
 
-@export var suck_radius := 150.0
+@export var suck_radius := 100.0
 @export var max_force := 1000.0
-@export var delete_radius := 20.0  # How close before deletion
+@export var delete_radius := 30.0  # How close before deletion
 
 var sucked_bodies := []
 

@@ -2,12 +2,14 @@ class_name PowerUpOrb extends CharacterBody2D
 
 var max_speed := 500.0
 @onready var icon_node = $icon
+@onready var background := $BarRoundLargeSquare
 var power_type : PowerUpManager.power_up_types
 
 func _ready() -> void:
 	power_type = PowerUpManager.available_power_ups.pick_random()
 	var icon = load(PowerUpManager.icon_map[power_type])
 	if icon is PackedScene:
+		background.hide()
 		var inst = icon.instantiate()
 		add_child(inst)
 	elif icon is Texture2D:

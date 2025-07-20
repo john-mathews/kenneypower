@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://8t8oq5767mfy"]
+[gd_scene load_steps=5 format=3 uid="uid://8t8oq5767mfy"]
 
+[ext_resource type="Texture2D" uid="uid://dh2f1va7121xu" path="res://assets/bar_round_large_square.png" id="1_v2kcu"]
 [ext_resource type="Texture2D" uid="uid://uvkmtcggc75o" path="res://assets/bar_round_small_l_blue.png" id="1_vy11t"]
 [ext_resource type="Texture2D" uid="uid://r7shptm00ihe" path="res://assets/bar_round_small_r_blue.png" id="2_s108c"]
 [ext_resource type="Texture2D" uid="uid://ctpq8xv0sdmud" path="res://assets/dotBlue.png" id="3_s108c"]
@@ -7,17 +8,24 @@
 [node name="RainDrop" type="Node2D"]
 metadata/_edit_vertical_guides_ = [-99.0]
 
+[node name="BarRoundLargeSquare" type="Sprite2D" parent="."]
+texture = ExtResource("1_v2kcu")
+
 [node name="BarRoundSmallLBlue" type="Sprite2D" parent="."]
-position = Vector2(0, -2)
+modulate = Color(0, 0, 100, 1)
+position = Vector2(-2, -6)
 rotation = -2.67035
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_vy11t")
 
 [node name="BarRoundSmallRBlue" type="Sprite2D" parent="."]
-position = Vector2(0, -2)
+modulate = Color(0, 0, 100, 1)
+position = Vector2(2, -5)
 rotation = 2.67035
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_s108c")
 
 [node name="DotBlue" type="Sprite2D" parent="."]
-position = Vector2(0, 3)
-scale = Vector2(0.6, 0.6)
+modulate = Color(0, 0, 100, 1)
+position = Vector2(0, 6)
 texture = ExtResource("3_s108c")

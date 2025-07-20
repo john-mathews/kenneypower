@@ -5,6 +5,7 @@ var init_spawn : Vector2
 @export_enum("left", "right") var side := 'left'
 @onready var vacuum_spawn := $VacuumSpawn
 const vacuum_spawn_offset := Vector2(160, 0)
+var vacuum:Area2D
 
 func _ready() -> void:
 	init_spawn = position
