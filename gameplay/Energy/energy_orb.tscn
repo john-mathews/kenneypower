@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccopb4164r4x4"]
+[gd_scene load_steps=5 format=3 uid="uid://ccopb4164r4x4"]
 
 [ext_resource type="Script" uid="uid://degg83tpj3ek3" path="res://gameplay/Energy/energy_orb.gd" id="1_icfgv"]
 [ext_resource type="Texture2D" uid="uid://cmjgno7e4x5wl" path="res://assets/dotYellow.png" id="1_tltu6"]
+[ext_resource type="AudioStream" uid="uid://b7hqeqhhinyjm" path="res://assets/sounds/coin1.ogg" id="3_hu1xo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xtb3f"]
 radius = 12.0
@@ -18,3 +19,7 @@ texture = ExtResource("1_tltu6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xtb3f")
+
+[node name="PlayerHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hu1xo")
+pitch_scale = 2.0

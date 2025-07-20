@@ -7,6 +7,8 @@ var point_timer := 1.0
 var point_counter := 0.0
 var cold_fusion := false
 @onready var sprite := $Sprite2D
+@onready var player_hit := $PlayerHit
+
 const blue_dot_uid := 'uid://ctpq8xv0sdmud'
 
 func _ready() -> void:
@@ -34,6 +36,7 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.bounce(normal)
 		velocity = min(max_speed,(velocity.length() + speed_increase)) * velocity.normalized() 
 		if collider is CharacterBody2D:
+			player_hit.play()
 			if UiDataManager.energy < UiDataManager.MAX_ENERGY:
 				UiDataManager.energy += 1
 				UiDataManager.update_energy_ui.emit(UiDataManager.energy)

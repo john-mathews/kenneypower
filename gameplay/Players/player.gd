@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 		var normal = collision.get_normal()
 		var collider = collision.get_collider()
 		if collider is EnergyOrb:
+			collider.player_hit.play()
 			if UiDataManager.energy < UiDataManager.MAX_ENERGY:
 				UiDataManager.energy += 1
 				UiDataManager.update_energy_ui.emit(UiDataManager.energy)

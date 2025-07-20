@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c24g4jvrr1lt7"]
+[gd_scene load_steps=18 format=4 uid="uid://c24g4jvrr1lt7"]
 
 [ext_resource type="Script" uid="uid://cq0k3pwulehjt" path="res://gameplay/level.gd" id="1_j7vup"]
 [ext_resource type="TileSet" uid="uid://busgprfv7bjnu" path="res://resources/tileset.tres" id="1_k7ktn"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://gw4t5rk4m4u4" path="res://gameplay/camera_2d.gd" id="8_qm42a"]
 [ext_resource type="PackedScene" uid="uid://d33mynavgym5a" path="res://ui/main_menu.tscn" id="9_m5mjv"]
 [ext_resource type="PackedScene" uid="uid://yslagwxs1l41" path="res://ui/end_menu.tscn" id="10_u3l0t"]
+[ext_resource type="AudioStream" uid="uid://c24jk3tvwxkf1" path="res://assets/sounds/explosionCrunch_001.ogg" id="11_em3rg"]
+[ext_resource type="AudioStream" uid="uid://btxykabuu1y5n" path="res://assets/sounds/spaceEngine_002.ogg" id="13_4637u"]
 
 [sub_resource type="Image" id="Image_r8tso"]
 data = {
@@ -566,3 +568,12 @@ horizontal_alignment = 1
 
 [node name="EndMenu" parent="CanvasLayer" instance=ExtResource("10_u3l0t")]
 visible = false
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_em3rg")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_4637u")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true

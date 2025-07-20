@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://8i7gyxy70r5d"]
+[gd_scene load_steps=4 format=3 uid="uid://8i7gyxy70r5d"]
 
 [ext_resource type="Script" uid="uid://b1rnrg8itawnj" path="res://gameplay/Energy/spawner.gd" id="1_0grye"]
+[ext_resource type="AudioStream" uid="uid://qno8akhe0b3y" path="res://assets/sounds/spaceEngine_000.ogg" id="2_g24uk"]
+[ext_resource type="AudioStream" uid="uid://bo83ntxclw5lb" path="res://assets/sounds/engineCircular_000.ogg" id="4_31j7q"]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_0grye")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_g24uk")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_31j7q")
+volume_db = -22.0
+autoplay = true
+parameters/looping = true

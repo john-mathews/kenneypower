@@ -94,6 +94,12 @@ func _process(delta: float) -> void:
 			power_up_counter = 0.0
 
 func activate_power_up(orb: PowerUpOrb, player: CharacterBody2D) -> void:
+	var sfx = AudioStreamPlayer.new()
+	sfx.stream = preload("uid://1q2f3366i6nl")
+	sfx.volume_db = -5
+	add_child(sfx)
+	sfx.play()
+
 	if orb.power_type in current_power_ups:
 		UiDataManager.score += 100
 		UiDataManager.update_score_ui.emit(UiDataManager.score)

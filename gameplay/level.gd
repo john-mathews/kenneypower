@@ -5,9 +5,10 @@ extends Node2D
 @onready var reactor := $Visuals/ReactorVisual
 @onready var cam := $Camera2D
 @onready var start_label := $CanvasLayer/StartLabel
-@onready var game_ui : = $CanvasLayer/UI
-@onready var  main_menu : = $CanvasLayer/MainMenu
-@onready var  end_menu : = $CanvasLayer/EndMenu
+@onready var game_ui := $CanvasLayer/UI
+@onready var  main_menu := $CanvasLayer/MainMenu
+@onready var  end_menu := $CanvasLayer/EndMenu
+@onready var game_over_sound:= $GameOverSound
 var spawner_uid:= 'uid://8i7gyxy70r5d'
 var spawner
 
@@ -62,6 +63,7 @@ func check_integrity(integrity: int) -> void:
 		end_game()
 		
 func end_game() -> void:
+	game_over_sound.play()
 	if spawner != null:
 		spawner.queue_free()
 	var orbs = orb_container.get_children()
