@@ -3,8 +3,8 @@ extends Control
 signal play_again(game_type: String)
 signal main_menu()
 
-@onready var final := $FinalScore
-@onready var high := $HighScore
+@onready var final := $Control/VBoxContainer/FinalScore
+@onready var high := $Control/VBoxContainer/HighScore
 
 
 func setup() -> void:

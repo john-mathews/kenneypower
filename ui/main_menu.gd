@@ -2,8 +2,8 @@ extends Control
 
 signal start_pressed(game_type: String)
 
-@onready var single_label := $SingleScore
-@onready var coop_label := $CoopScore
+@onready var single_label := $VBoxContainer/HBoxContainer/Control2/VBoxContainer2/SingleScore
+@onready var coop_label := $VBoxContainer/HBoxContainer/Control2/VBoxContainer2/CoopScore
 
 func start_menu() -> void:
 	single_label.text = 'HIGH SCORE: ' + str(UiDataManager.high_score_single)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://yslagwxs1l41"]
+[gd_scene load_steps=12 format=4 uid="uid://yslagwxs1l41"]
 
 [ext_resource type="Texture2D" uid="uid://d02pigalujps3" path="res://assets/button_square_header_small_square_screws.png" id="1_4ksec"]
 [ext_resource type="Script" uid="uid://dn3y53fqhs87p" path="res://ui/end_menu.gd" id="1_sewyj"]
@@ -771,9 +771,60 @@ cache/0/25/0/glyphs/3/offset = Vector2(0, 0)
 cache/0/25/0/glyphs/3/size = Vector2(0, 0)
 cache/0/25/0/glyphs/3/uv_rect = Rect2(0, 0, 0, 0)
 cache/0/25/0/glyphs/3/texture_idx = -1
+cache/0/15/0/ascent = 14.0
+cache/0/15/0/descent = 4.0
+cache/0/15/0/underline_position = -1.125
+cache/0/15/0/underline_thickness = 0.75
+cache/0/15/0/scale = 1.0
+cache/0/14/0/ascent = 13.0
+cache/0/14/0/descent = 4.0
+cache/0/14/0/underline_position = -1.04688
+cache/0/14/0/underline_thickness = 0.703125
+cache/0/14/0/scale = 1.0
+cache/0/13/0/ascent = 12.0
+cache/0/13/0/descent = 4.0
+cache/0/13/0/underline_position = -0.984375
+cache/0/13/0/underline_thickness = 0.640625
+cache/0/13/0/scale = 1.0
+cache/0/12/0/ascent = 11.0
+cache/0/12/0/descent = 3.0
+cache/0/12/0/underline_position = -0.90625
+cache/0/12/0/underline_thickness = 0.59375
+cache/0/12/0/scale = 1.0
+cache/0/11/0/ascent = 10.0
+cache/0/11/0/descent = 3.0
+cache/0/11/0/underline_position = -0.828125
+cache/0/11/0/underline_thickness = 0.546875
+cache/0/11/0/scale = 1.0
+cache/0/10/0/ascent = 9.0
+cache/0/10/0/descent = 3.0
+cache/0/10/0/underline_position = -0.75
+cache/0/10/0/underline_thickness = 0.5
+cache/0/10/0/scale = 1.0
+cache/0/9/0/ascent = 8.0
+cache/0/9/0/descent = 3.0
+cache/0/9/0/underline_position = -0.671875
+cache/0/9/0/underline_thickness = 0.453125
+cache/0/9/0/scale = 1.0
+cache/0/7/0/ascent = 7.0
+cache/0/7/0/descent = 2.0
+cache/0/7/0/underline_position = -0.53125
+cache/0/7/0/underline_thickness = 0.34375
+cache/0/7/0/scale = 1.0
+cache/0/6/0/ascent = 6.0
+cache/0/6/0/descent = 2.0
+cache/0/6/0/underline_position = -0.453125
+cache/0/6/0/underline_thickness = 0.296875
+cache/0/6/0/scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ksec"]
 font = SubResource("FontFile_bi8hs")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sewyj"]
+line_spacing = 0.0
+font = SubResource("FontFile_bi8hs")
+font_size = 6
 font_color = Color(0, 0, 0, 1)
 
 [node name="EndMenu" type="Control"]
@@ -787,66 +838,95 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_sewyj")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -137.0
-offset_top = -169.0
-offset_right = -9.0
-offset_bottom = -41.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
+pivot_offset = Vector2(64, 64)
 texture = ExtResource("1_4ksec")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 512.0
-offset_top = 184.0
-offset_right = 627.0
-offset_bottom = 207.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
 text = "GAME OVER"
 label_settings = SubResource("LabelSettings_4ksec")
+horizontal_alignment = 1
+vertical_alignment = 2
 
-[node name="FinalScore" type="Label" parent="."]
-layout_mode = 0
-offset_left = 457.0
-offset_top = 233.0
-offset_right = 588.0
-offset_bottom = 256.0
+[node name="Label4" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+label_settings = SubResource("LabelSettings_4ksec")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_sewyj")
+
+[node name="FinalScore" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
 text = "FINAL SCORE:"
 label_settings = SubResource("LabelSettings_4ksec")
+horizontal_alignment = 1
 
-[node name="HighScore" type="Label" parent="."]
-layout_mode = 0
-offset_left = 458.0
-offset_top = 284.0
-offset_right = 575.0
-offset_bottom = 307.0
+[node name="Label2" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_4ksec")
+horizontal_alignment = 1
+
+[node name="HighScore" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
 text = "HIGH SCORE:"
 label_settings = SubResource("LabelSettings_4ksec")
+horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 503.0
-offset_top = 310.0
-offset_right = 628.0
-offset_bottom = 341.0
+[node name="Label5" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_4ksec")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_bje0f")
 text = "Play Again"
 
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 504.0
-offset_top = 355.0
-offset_right = 629.0
-offset_bottom = 386.0
+[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_bje0f")
 text = "Main Menu"
 
-[connection signal="pressed" from="Button" to="." method="_on_play_again_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_main_menu_pressed"]
