@@ -10,6 +10,7 @@ func start_menu() -> void:
 	coop_label.text = 'HIGH SCORE: ' + str(UiDataManager.high_score_coop)
 
 func _ready() -> void:
+	show()
 	start_menu()
 
 func _on_single_button_pressed() -> void:

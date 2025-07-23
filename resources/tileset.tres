@@ -1,9 +1,15 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://busgprfv7bjnu"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://busgprfv7bjnu"]
 
 [ext_resource type="Texture2D" uid="uid://cns4armgx05fu" path="res://assets/button_square.png" id="1_81yw3"]
+[ext_resource type="Texture2D" uid="uid://y8re3aus1jd" path="res://assets/glassPanel_corners.png" id="1_luhvj"]
 [ext_resource type="Texture2D" uid="uid://cfvmomts4wbml" path="res://assets/metalPanel_plate.png" id="2_vgpmu"]
 [ext_resource type="Texture2D" uid="uid://dsqf2f82f2atx" path="res://assets/button_square_header_large_rectangle.png" id="3_vgpmu"]
 [ext_resource type="Texture2D" uid="uid://dotca4hg3jawq" path="res://assets/button_square_header_large_rectangle_red.png" id="4_e5o2m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6dy5u"]
+texture = ExtResource("1_luhvj")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7ktn"]
 texture = ExtResource("1_81yw3")
@@ -70,3 +76,4 @@ sources/1 = SubResource("TileSetAtlasSource_k7ktn")
 sources/2 = SubResource("TileSetAtlasSource_eedhe")
 sources/3 = SubResource("TileSetAtlasSource_e5o2m")
 sources/4 = SubResource("TileSetAtlasSource_luhvj")
+sources/0 = SubResource("TileSetAtlasSource_6dy5u")
